@@ -41,15 +41,13 @@ if($method == 'GET')
 if($method == "POST")
 { 
   $data = array(
-
-    ':dates' => $_POST['dates'],
     ':serial_number'  => $_POST['serial_number'],
     ':dummy'  => $_POST["dummy"],
     ':holder'    => $_POST["holder"],
     ':status'   => $_POST["status"]
   );
 
-  $query = "INSERT INTO sample_data (dates, serial_number, dummy, holder, status) VALUES (:dates, :serial_number, :dummy, :holder, :status)";
+  $query = "INSERT INTO sample_data (serial_number, dummy, holder, status) VALUES (:serial_number, :dummy, :holder, :status)";
   $statement = $connect->prepare($query);
   $statement->execute($data);
 }
